@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Material design -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/noteText"
+            style="@style/Widget.NoteKeeperApp.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="@string/note_text"
+            android:importantForAutofill="no"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/noteTextEditText"
+                style="@style/Widget.NoteKeeperApp.TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minHeight="@dimen/edit_text_height"
+                tools:ignore="TextContrastCheck">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/note_text"
+                android:inputType="textMultiLine"
+                android:minHeight="@dimen/edit_text_height"
+                app:layout_constraintEnd_toEndOf="@+id/textNoteTitle"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textNoteTitle"
+                app:layout_constraintTop_toBottomOf="@+id/textNoteTitle"
+                android:importantForAutofill="no" />
+
+           -->
+
+
+        <Spinner
+            android:id="@+id/spinnerCourses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/select_a_course"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textNoteTitle"
+            style="@style/Widget.NoteKeeperApp.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/note_title"
+            android:importantForAutofill="no"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCourses">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textNoteTitleEditText"
+                style="@style/Widget.NoteKeeperApp.TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minHeight="@dimen/edit_text_height"
+                tools:ignore="TextContrastCheck">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/note_title"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/edit_text_height"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCourses" />
+            -->
+
+        <TextView
+            android:id="@+id/commentLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/comments"
+            android:textColor="#666666"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/noteText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentsList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/commentLabel"
+            app:layout_constraintVertical_bias="0"
+            tools:listitem="@layout/item_comment" />
+
+        <TextView
+            android:id="@+id/colorSelectedLabel"
+            style="@style/Widget.NoteKeeperApp.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/note_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textNoteTitle" />
+
+        <com.example.notekeeperapp.ColorDialView
+            android:id="@+id/colorSelector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:foregroundTint="@android:color/transparent"
+            android:progress="@integer/material_motion_duration_short_1"
+            app:colors="@array/note_color_array"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/colorSelectedLabel" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
